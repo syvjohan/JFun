@@ -5,10 +5,11 @@
  */
 package P2.Dice;
 
-import P2.Dice.SimpleDice;
-import P2.Dice.Dice;
+import P2.Cheater.Cheater;
+import P2.Dice.*;
 import P2.helpLib.*;
 import javax.swing.*;
+import P2.Player.OrdinaryPlayer;
 /**
  *
  * @author johan
@@ -21,16 +22,6 @@ public class TestSimpleDice {
      }
     
      public static void main(String args[]) {
-         TestDice dice = new TestDice();
-         dice.test(new SimpleDice(6), 1000000);
-         dice.printNbr();
-         System.out.print("\n");
-         
-         dice.test(new SimpleDice(4), 1000000);
-         dice.printNbr();
-         System.out.print("\n");
-
-     }
         /*Dice dice;
         int sides, aThrow;
         int[] result;
@@ -59,6 +50,15 @@ public class TestSimpleDice {
                 TextWindow.println( "Felaktigt resultat vid tärningskast: " + res );
             }          
             sides = Integer.parseInt( JOptionPane.showInputDialog( "Hur många sidor ska tärningen ha? (-10 för avbrott)" ) );
-        }
-    }*/
+        }*/
+         
+         
+         /*TestDice.test( new OrdinaryPlayer( "Rut", new SimpleDice( 6 ) ), 1000000 );
+         System.out.println();
+         TestDice.test( new Cheater( "Fuffe", new SimpleDice( 6 ) ), 1000000 );*/
+         
+        /*TestDice.test( new SimpleDice( 6 ), 1000000 );
+        System.out.println();
+        TestDice.test( new SimpleDice( 4 ), 1000000 );*/
+    }
 }

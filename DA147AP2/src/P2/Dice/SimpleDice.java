@@ -17,7 +17,10 @@ public class SimpleDice implements Dice {
     private int sides;
     private Random rand = new Random();
     
-    public SimpleDice() {}
+    public SimpleDice() {
+        this(6);
+    }
+    
     public SimpleDice(int sides) {
         if (sides <= 0) {
             throw new NegativeSidesException("number of sides shall be between 1 and 10");
@@ -30,10 +33,10 @@ public class SimpleDice implements Dice {
     }
     
     public int throwDice() {
-        return generateRandNum(sides, 1);
+        return generateRandNum(this.sides, 1);
     }
     
     private int generateRandNum(int maxSize, int minSize) {
-        return rand.nextInt((maxSize - minSize) +1) + minSize;
+        return rand.nextInt(maxSize) +minSize;
     }
 }

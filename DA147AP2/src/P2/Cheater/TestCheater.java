@@ -3,26 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package P2.Player;
-import P2.Dice.*;
+package P2.Cheater;
+import P2.Player.*;
 import P2.helpLib.TextWindow;
+import P2.Dice.*;
 import P2.Game.Game;
 
 /**
  *
  * @author johan
  */
-public class TestOrdinaryPlayer {
-     public static void roll( Player player, int antalKast ) {
+public class TestCheater {
+  public static void roll( Player player, int antalKast ) {
         // Typkonvertera referensen till "Referens till OrdinaryPlayer"
-       OrdinaryPlayer op = ( OrdinaryPlayer ) player;
-        // Använda OrdinaryPlayer-referensen för att erhålla spelarens Dice-objekt
+        Cheater ch = ( Cheater )player;
+        // Använda Cheater-referensen för att erhålla spelarens Dice-objekt
         // Här går det inte att använda Player-referensen (player) eftersom metoden 
         // getDice() inte är deklarerad i klassen Player (eller i Object).
-        Dice dice = op.getDice();
+        Dice dice = ch.getDice();
         int sides = dice.getSides(), aThrow;
         // Skapa en array för att räkna antalet 1:or, 2:or ocv som tärningen visar vid kasten nedan 
-        int[] result = new int[ sides ];
+        int[] result = new int[ sides +1];
         TextWindow.println( "----- " + antalKast + " kast av " + player.getName() + 
                 " med " + sides + "-sidig tärning -----" );
         for( int i = 0; i < antalKast; i++ ) {
@@ -35,19 +36,23 @@ public class TestOrdinaryPlayer {
         TestSimpleDice.printResult( result );
     }
     
-   public static void main( String[] args ) {
-        Player player1 = new OrdinaryPlayer( "Stefan" , new SimpleDice( 8 ) );
-        Player player2 = new OrdinaryPlayer( "Signe" );
-        TestOrdinaryPlayer.roll( player1, 1000000 );
-        TestOrdinaryPlayer.roll( player2, 50 );
-        ( (OrdinaryPlayer)player1 ).setDice( new SimpleDice( 3 ) );
-        TestOrdinaryPlayer.roll( player1, 10 );
-       
-       
-        /*SimpleDice dice = new SimpleDice( 6 );
-        Player player1 = new OrdinaryPlayer( "Gustav", dice );
-        Player player2 = new OrdinaryPlayer( "Valborg", dice );
+    public static void main(String[] args) {
+        /*Cheater player1 = new Cheater( "Stefan" , new SimpleDice(8) );
+        Cheater player2 = new Cheater( "Signe", new SimpleDice (6) );
+        
+        TestCheater.roll( player1, 1000000 );
+        TestCheater.roll( player2, 1000000 );
+        ( (Cheater)player1 ).setDice( new SimpleDice( 2 ) );
+        TestCheater.roll( player1, 1000000 );
+        ( (Cheater)player2 ).setDice( new SimpleDice( 1 ) );
+        TestCheater.roll( player2, 1000000 );*/
+
+        
+        /*Player player1 = new OrdinaryPlayer( "Viktor", new SimpleDice(6) );
+        Player player2 = new Cheater( "Signe", new SimpleDice(6) );
         Game game = new Game( player1, player2 );
-        game.play( true );*/
-    }
+        System.out.println( "\nResultatet av tio spel" );
+        for( int i=0; i<10; i++ )
+        game.play( false );*/
+    }   
 }

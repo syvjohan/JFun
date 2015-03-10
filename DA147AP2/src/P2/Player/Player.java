@@ -12,15 +12,9 @@ import P2.Dice.*;
  */
 public abstract class Player {
      private String name;
-     private Dice dice;
 
     public Player(String name) {
         this.name = name;
-    }
-    
-    public Player(String name, Dice dice) {
-        this.name = name;
-        this.dice = dice;
     }
     
     public String getName() {

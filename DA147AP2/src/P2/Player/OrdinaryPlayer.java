@@ -12,18 +12,16 @@ import P2.Dice.*;
  */
 public class OrdinaryPlayer extends Player {
     private Dice dice;
-    private String name;
     
     public OrdinaryPlayer(String name) {
         super(name);
-        this.name = name;
         
-        SimpleDice simpledice = new SimpleDice(6);
-        
+        SimpleDice simpledice = new SimpleDice(6);       
     }
+    
     public OrdinaryPlayer(String name, Dice dice) {
-        super(name, dice);
-        this.name = name;
+        super(name);
+
         this.dice = dice;
     }
     
@@ -37,7 +35,7 @@ public class OrdinaryPlayer extends Player {
     
     @Override
     public int throwDice() {
-        SimpleDice simpleDice = new SimpleDice();
+        SimpleDice simpleDice = new SimpleDice(dice.getSides());
         return simpleDice.throwDice();
     }
 }
